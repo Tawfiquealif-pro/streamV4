@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream.io</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+    <header>
+        <a href="" class="logo"><img src="details/images/Untitled-1-removebg.png" alt=""></a>
+        <ul class="nav" id="nav-bar">
+            <li>
+                <label for="" onclick="slidebarDeactive()"><i class="fa-solid fa-xmark"></i></label>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="">Adults</a></li>
+            <li><a href="">Kids</a></li>
+            <li><a href="">Anime</a></li>
+            <li><a href="">My List</a></li>
+            
+        </ul>
+        <div class="menu-ico">
+            <label for="sidebar-active" onclick="sliderButton()"><i class="fa-solid fa-bars"></i></label>
+            <input type="checkbox" id="sidebar-active">
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="search...">
+            <i class="fa fa-search"></i>
+        </div>
+        <div class="for-mobile">
+            <label for="toggleDown"  onclick="searchBarToggleDown()" class="search-ico"><i class="fa fa-search"></i></label>
+        </div>
+        
+    </header>
+    <div class="banner" id="background" >
+        <div class="content active" id="content">
+            <img src="details/images/title/My-demon-title.png" alt="" class="movie-title" id="title">
+            <h4>
+                <span id="release" class="tr">2023</span><span class="tr"><i id="age-restriction" class="tr">16+</i></span><span id="duration" class="tr">16h 10min</span><span id="genre" class="tr">Love</span>
+            </h4>
+            <p id="description">
+                A pitiless demon becomes powerless after getting entangled with an icy heiress, who may hold the key to his lost abilities — and his heart.
+              
+            </p>
+            <div class="button">
+                <a href="details/My-demon-DE.html" onclick="showInfo()" id="ref"><i class="fa fa-play"></i>WATCH</a>
+                <a href=""><i class="fa fa-plus"></i>MY List</a>
+            </div>
+        </div>
+
+
+        <div class="carousel-box" id="box">
+            <div class="carousel">
+               <div class="carousel-item" onclick="ChangeContent('0')">
+                <img src="details/images/My-demon-poster.png">
+               </div>
+               <div class="carousel-item" onclick="ChangeContent('1')">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" alt="">
+               </div>
+               <div class="carousel-item" onclick="ChangeContent('2')">
+                <img src="details/images/queen-of-tears-poster.jpg" alt="">
+               </div>
+               <div class="carousel-item" onclick="ChangeContent('3')">
+                <img src="details/images/Spy-X-Family.jpg" alt="">
+               </div>
+               <div class="carousel-item" onclick="ChangeContent('4')">
+                <img src="details/images/SpiritedAway.jpg" alt="">
+               </div>
+               <div class="carousel-item" onclick="ChangeContent('5')">
+                <img src="details/images/Naruto-Shippuden-poster.jpg" alt="">
+               </div>
+               <div class="carousel-item" onclick="ChangeContent('9')">
+                <img src="details/images/Erased-poster.jpg" alt="">
+               </div>
+               <div class="carousel-item" onclick="ChangeContent('10')">
+                <img src="details/images/Hierarchy-tp01.jpg" alt="">
+               </div>
+              </div>
+        </div>
+        <a class="play-trailer" onClick="toggleVideo()" id="trailer"><i class="fa-solid fa-circle-play"></i>Watch Trailer</a>
+        <ul class="sci" id="sci">
+            <li>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </li>
+        </ul>
+
+        <!-----------------DISPLAY_FORM---------------->
+
+    </div>
+    <div class="trailer">
+        <video id="video" src="trailer/y2mate.com - IVE 아이브 I AM MV_1440p.mp4" muted controls="true" autoplay="true"></video>
+        <img src="details/images/close.png" class="close" onClick="toggleVideo()">
+    </div>
+    <div class="search-function" id="search-function">
+        <div class="search-bar flex">
+            <input type="text" id="searchInput" placeholder="search...">
+            <label for="" onclick="searchBarToggleUp()"><i class="fa-solid fa-xmark"></i></label>
+        </div>
+        
+        
+    </div>
+       <!-----------------SEARCH-REASULT---------------->
+    <div class="search-result" id="searchResult">
+        <div class="grid-container" id="grid-container">
+     
+        
+        </div>
+        
+        <div class="grid2">
+
+        </div>
+    </div>
+    <!-----------------WRAPER---------------->
+   <div class="wraper" id="wraper">
+    <!-----------------GenreType1---------------->
+    <div class="genre-type"><h1 id="genre-type">Latest Movies</h1></div>
+    <div class="slider-choose"> 
+        <div class="section-1">
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF1">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster1">
+                <i id="source1">Source1</i>
+                <div class="texts">
+                <h2 id="movie1">Rent a girlfriend (Dual Audio)</h2><br>
+                <p id="rating1">8.9/10</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF2">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster2">
+                <i id="source2">Source1</i>
+                <div class="texts">
+                    <h2 id="movie2">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating2">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF3">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster3">
+                <i id="source3">Source1</i>
+                <div class="texts">
+                    <h2 id="movie3">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating3">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+    </div>
+    <div class="section-1">
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF4">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster4">
+                <i id="source4">Source1</i>
+                <div class="texts">
+                    <h2 id="movie4">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating4">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF5" >
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster5">
+                <i id="source5">Source1</i>
+                <div class="texts">
+                    <h2 id="movie5">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating5">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF6">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster6">
+                <i id="source6">Source1</i>
+                <div class="texts">
+                    <h2 id="movie6">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating6">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+    </div>
+    </div>
+    <div class="slider-choose"> 
+        <div class="section-1">
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF7">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster7">
+                <i id="source7">Source1</i>
+                <div class="texts">
+                <h2 id="movie7">Rent a girlfriend (Dual Audio)</h2><br>
+                <p id="rating7">8.9/10</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF8">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster8">
+                <i id="source8">Source1</i>
+                <div class="texts">
+                    <h2 id="movie8">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating8">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF9">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster9">
+                <i id="source9">Source1</i>
+                <div class="texts">
+                    <h2 id="movie9">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating9">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+    </div>
+    <div class="section-1">
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF10">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster10">
+                <i id="source10">Source1</i>
+                <div class="texts">
+                    <h2 id="movie10">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating10">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF11" >
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster11">
+                <i id="source11">Source1</i>
+                <div class="texts">
+                    <h2 id="movie11">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating11">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF12">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster12">
+                <i id="source12">Source1</i>
+                <div class="texts">
+                    <h2 id="movie12">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating12">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+    </div>
+    </div>
+     <!-----------------GenreType2---------------->
+    <div class="genre-type"><h1 id="genre-type">New This Week</h1></div>
+    <div class="slider-choose"> 
+        <div class="section-1">
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF13">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster13">
+                <i id="source13">Source1</i>
+                <div class="texts">
+                <h2 id="movie13">Rent a girlfriend (Dual Audio)</h2><br>
+                <p id="rating13">8.9/10</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF14">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster14">
+                <i id="source14">Source1</i>
+                <div class="texts">
+                    <h2 id="movie14">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating14">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF15">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster15">
+                <i id="source15">Source1</i>
+                <div class="texts">
+                    <h2 id="movie15">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating15">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+    </div>
+    <div class="section-1">
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF16">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster16">
+                <i id="source16">Source1</i>
+                <div class="texts">
+                    <h2 id="movie16">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating16">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF17" >
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster17">
+                <i id="source17">Source1</i>
+                <div class="texts">
+                    <h2 id="movie17">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating17">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+        <div class="img-info"><a href="details/Rent-a-Girlfrien-DE.html" id="REF18">
+            <div class="title-tag">
+                <img src="details/images/Rent-a-Girlfriend-poster.jpg" id="poster18">
+                <i id="source18">Source1</i>
+                <div class="texts">
+                    <h2 id="movie18">Rent a girlfriend (Dual Audio)</h2><br>
+                    <p id="rating18">8.9/10</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+    </div>
+    </div>
+   </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+    <script src="List.js"></script>
+    
+
+    <script>
+ $(document).ready(function(){
+    $('.carousel').carousel();
+  });
+
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true
+  });
+    </script>
+</body>
+</html>
